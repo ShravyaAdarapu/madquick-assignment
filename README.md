@@ -4,9 +4,13 @@ A full-stack MERN password manager with client-side encryption and 2FA.
 
 ## 📹 Demo
 
-- **Live App**: [Vercel Link](YOUR_VERCEL_LINK_HERE)
-- **Demo Video**: [Watch on YouTube](YOUR_VIDEO_LINK_HERE)
+- **Live App**: [Render Link](https://madquick-5ysm.onrender.com)
+- **GitHub Rep**: [Github Rep Link](https://github.com/ShravyaAdarapu/madquick-assignment/)
+- **Demo Video**: [Demo Link](https://drive.google.com/file/d/14qJ-I5mIWXNrB4kPNsZhHgO0JGHHiWpn/view?usp=sharing)
 
+## 🔐 Crypto Explanation
+
+I used **crypto-js** for client-side encryption because it's lightweight (~100KB), battle-tested, and works seamlessly in browsers. All vault items are encrypted with AES-256-CBC using a master key derived from the user's password via PBKDF2 (10,000 iterations). The server only stores encrypted blobs - plaintext passwords never leave the browser.
 ### Setup & Run
 
 1. **Clone and install**
@@ -52,10 +56,6 @@ Backend: `http://localhost:5000`
 - **Tags & Search** - Organize and find passwords quickly
 - **Auto-Clear Clipboard** - Copied passwords clear after 15s
 - **Dark Mode** - Pure black theme
-
-## 🔐 Crypto Explanation
-
-I used **crypto-js** for client-side encryption because it's lightweight (~100KB), battle-tested, and works seamlessly in browsers. All vault items are encrypted with AES-256-CBC using a master key derived from the user's password via PBKDF2 (10,000 iterations). The server only stores encrypted blobs - plaintext passwords never leave the browser.
 
 ## 🛠️ Tech Stack
 
