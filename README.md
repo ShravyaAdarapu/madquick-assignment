@@ -11,7 +11,12 @@ A full-stack MERN password manager with client-side encryption and 2FA.
 ## 🔐 Crypto Explanation
 
 I used **crypto-js** for client-side encryption because it's lightweight (~100KB), battle-tested, and works seamlessly in browsers. All vault items are encrypted with AES-256-CBC using a master key derived from the user's password via PBKDF2 (10,000 iterations). The server only stores encrypted blobs - plaintext passwords never leave the browser.
-### Setup & Run
+
+## 💡 Inspiration
+
+Built this as a not only as an assignment but also a learning project to explore security-first web development. I wanted to understand how password managers handle encryption without trusting the server, and why 2FA matters even with strong passwords. The challenge of implementing client-side encryption that actually works (and doesn't give you a false sense of security) was super interesting. Also wanted to prove I could build a full-stack TypeScript app with proper auth flows and modern React patterns.
+
+## 🚀 Setup & Run
 
 1. **Clone and install**
 ```bash
@@ -20,19 +25,20 @@ cd madquick
 npm run install-all
 ```
 
-2. **Setup environment**
+2. **Local Setup environment**
 
+If not running locally, use MongoDB Atlas and create a cluster like I did.
 Create `backend/.env`:
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/password-manager
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/?retryWrites=true&w=majority
 JWT_SECRET=your-secret-key-change-in-production
 NODE_ENV=development
 ```
 
 Create `frontend/.env`:
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=deployed backend url
 ```
 
 3. **Start MongoDB** (if local)
@@ -44,7 +50,7 @@ mongod
 ```bash
 npm run dev
 ```
-
+Locally
 Frontend: `http://localhost:3000`  
 Backend: `http://localhost:5000`
 
@@ -110,4 +116,4 @@ madquick/
 
 ## 🚀 Deployment
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed step-by-step instructions on deploying to Vercel.
+Deployed on Render (both frontend and backend). MongoDB hosted on Atlas. Set environment variables in Render dashboard and whitelist `0.0.0.0/0` in Atlas Network Access for public deployment.
