@@ -1,0 +1,241 @@
+.settings-container {
+  min-height: 100vh;
+  background: #000000;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 40px;
+  background: #0a0a0a;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-back:hover {
+  background: #1a1a1a;
+  border-color: #4CAF50;
+}
+
+.settings-header h1 {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.settings-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.settings-section {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.section-header svg {
+  color: #4CAF50;
+  flex-shrink: 0;
+}
+
+.section-header h2 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.section-header p {
+  font-size: 14px;
+  color: #888;
+}
+
+.section-status {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.status-badge {
+  padding: 6px 16px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-badge.enabled {
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  color: #4CAF50;
+}
+
+.status-badge.disabled {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  color: #f44336;
+}
+
+.action-box, .setup-box, .disable-box {
+  padding: 20px;
+  background: #000000;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.action-box p, .setup-box p, .disable-box p {
+  color: #ccc;
+  font-size: 14px;
+}
+
+.setup-box h3, .disable-box h3 {
+  font-size: 16px;
+  color: #ffffff;
+  margin-top: 8px;
+}
+
+.qr-code-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.qr-code-container img {
+  width: 200px;
+  height: 200px;
+}
+
+.secret-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+}
+
+.secret-container small {
+  color: #888;
+  font-size: 12px;
+}
+
+.secret-container code {
+  color: #4CAF50;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.verify-form, .disable-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.verify-form input, .disable-box input {
+  padding: 12px 16px;
+  background: #000000;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.verify-form input:focus, .disable-box input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-cancel, .btn-danger {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: 1px solid #333;
+  color: #ffffff;
+}
+
+.btn-cancel:hover {
+  background: #1a1a1a;
+  border-color: #444;
+}
+
+.btn-danger {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  color: #f44336;
+}
+
+.btn-danger:hover {
+  background: rgba(244, 67, 54, 0.2);
+  border-color: #f44336;
+}
+
+.success-message {
+  padding: 12px 16px;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: 8px;
+  color: #4CAF50;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .settings-header {
+    padding: 16px 20px;
+  }
+
+  .settings-content {
+    padding: 20px;
+  }
+
+  .qr-code-container img {
+    width: 180px;
+    height: 180px;
+  }
+}
