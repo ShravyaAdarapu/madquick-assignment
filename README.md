@@ -5,9 +5,12 @@ A privacy-first, client-side encrypted password manager built with the MERN stac
 ## ✨ Features
 
 - **🔒 Client-Side Encryption**: All vault items are encrypted using AES-256 before being sent to the server
-- **🎲 Strong Password Generator**: Generate secure passwords with customizable options (length, symbols, numbers, exclude similar characters)
+- **🔐 2FA Enabled by Default**: TOTP-based two-factor authentication for maximum security
+- **🎲 Password Generator on Signup**: Generate strong master passwords with customizable options
 - **📋 Smart Clipboard**: Copy passwords with automatic clipboard clearing after 15 seconds
-- **🔍 Search & Filter**: Quickly find passwords by title, username, URL, or notes
+- **🔍 Search & Filter**: Quickly find passwords by title, username, URL, tags, or notes
+- **🏷️ Tags for Organization**: Organize vault items with custom tags
+- **⚙️ Settings Page**: Manage 2FA settings (disable if needed)
 - **🎨 Dark Mode UI**: Clean, modern interface with pure black dark mode
 - **⚡ Fast & Lightweight**: Built with performance in mind, no heavy UI libraries
 - **🔐 Secure Authentication**: JWT-based authentication with bcrypt password hashing
@@ -129,8 +132,8 @@ madquick/
 ## 🔧 API Endpoints
 
 ### Authentication
-- `POST /api/auth/signup` - Create new account
-- `POST /api/auth/login` - Login to account
+- `POST /api/auth/signup` - Create new account (returns 2FA QR code)
+- `POST /api/auth/login` - Login to account (requires 2FA code if enabled)
 
 ### Vault
 - `GET /api/vault` - Get all vault items (encrypted)
@@ -138,26 +141,40 @@ madquick/
 - `PUT /api/vault/:id` - Update vault item
 - `DELETE /api/vault/:id` - Delete vault item
 
+### Two-Factor Authentication
+- `POST /api/2fa/setup` - Generate new 2FA secret and QR code
+- `POST /api/2fa/verify` - Verify and enable 2FA
+- `POST /api/2fa/disable` - Disable 2FA (requires password)
+- `GET /api/2fa/status` - Check if 2FA is enabled
+
 ## 🎯 Usage Guide
 
 ### 1. Sign Up
-- Create an account with email and master password
+- Enter email and password
+- **Use the password generator** to create a strong master password
+  - Adjust length (8-32 characters)
+  - Toggle numbers, symbols, and similar character exclusion
+  - Click "Generate Password"
+- **Scan QR code** with Google Authenticator or Authy (2FA is enabled by default)
+- Save the backup code shown
+- Click "Continue to Vault"
 - ⚠️ **Remember your master password** - it cannot be recovered!
 
-### 2. Generate Password
-- Use the password generator at the top of the dashboard
-- Adjust length (8-32 characters)
-- Toggle numbers, symbols, and similar character exclusion
-- Click "Generate Strong Password"
+### 2. Login
+- Enter email and master password
+- Enter 6-digit 2FA code from your authenticator app
+- Access your vault
 
-### 3. Save Password
+### 3. Add Passwords to Vault
 - Click "Add Item" button
 - Fill in title, username, password, URL, and notes
+- Add tags (optional) for organization (e.g., "Banking", "Social", "Work")
 - Click "Save Item"
 - Data is encrypted before being sent to server
 
 ### 4. Search & Filter
-- Use the search bar to filter by title, username, URL, or notes
+- Use the search bar to filter by title, username, URL, tags, or notes
+- Use tag dropdown to filter by specific tags
 - Results update instantly as you type
 
 ### 5. Copy Password
@@ -168,6 +185,12 @@ madquick/
 ### 6. Edit & Delete
 - Click "Edit" to modify an existing item
 - Click "Delete" to remove an item (confirmation required)
+
+### 7. Manage 2FA (Settings)
+- Click "Settings" button in dashboard header
+- View 2FA status (enabled by default)
+- Option to disable 2FA (requires master password)
+- ⚠️ Keeping 2FA enabled is highly recommended for security
 
 ## 🔐 Security Best Practices
 
@@ -227,24 +250,27 @@ npm run build
 
 ## 📊 Features Implemented
 
-✅ Password Generator with customizable options  
-✅ Client-side encryption (AES-256)  
-✅ JWT authentication  
-✅ Vault CRUD operations  
-✅ Copy to clipboard with auto-clear (15s)  
-✅ Search and filter  
-✅ Dark mode UI (pure black)  
-✅ Responsive design  
-✅ TypeScript throughout  
+✅ **Password Generator** - Built into signup page with customizable options  
+✅ **Client-side Encryption** - AES-256-CBC with PBKDF2 key derivation  
+✅ **2FA (TOTP)** - Enabled by default with Google Authenticator/Authy  
+✅ **JWT Authentication** - Secure token-based auth with bcrypt  
+✅ **Vault CRUD Operations** - Full create, read, update, delete functionality  
+✅ **Tags & Organization** - Organize passwords with custom tags and filtering  
+✅ **Settings Page** - Manage 2FA and account settings  
+✅ **Copy with Auto-Clear** - Clipboard automatically clears after 15 seconds  
+✅ **Search & Filter** - Instant search across all fields including tags  
+✅ **Dark Mode UI** - Pure black (#000000) dark theme  
+✅ **Responsive Design** - Works on desktop and mobile  
+✅ **TypeScript** - Full type safety across frontend and backend  
 
 ## 🔮 Future Enhancements
 
-- 🔐 Two-Factor Authentication (TOTP)
-- 📁 Folders and tags for organization
-- 📤 Encrypted export/import
-- 🔄 Password strength analysis
+- 📤 Encrypted export/import of vault data
+- 🔄 Password strength analysis and weak password detection
 - 📱 Browser extension
 - 👥 Secure password sharing
+- 🔔 Password expiration reminders
+- 📊 Security dashboard with breach monitoring
 
 ## 📄 License
 
