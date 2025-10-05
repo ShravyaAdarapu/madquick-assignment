@@ -4,8 +4,8 @@ A full-stack MERN password manager with client-side encryption and 2FA.
 
 ## 📹 Demo
 
-[Watch Demo Video](YOUR_VIDEO_LINK_HERE)
-[Vercel Link]()
+- **Live App**: [Vercel Link](YOUR_VERCEL_LINK_HERE)
+- **Demo Video**: [Watch on YouTube](YOUR_VIDEO_LINK_HERE)
 
 ### Setup & Run
 
@@ -107,3 +107,7 @@ madquick/
 3. **Add Passwords** - Click "Add Item", fill details, add tags
 4. **Search** - Use search bar or filter by tags
 5. **Settings** - Manage 2FA (can disable if needed)
+
+## 🚀 Deployment
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed step-by-step instructions on deploying to Vercel.
